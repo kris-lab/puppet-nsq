@@ -1,4 +1,0 @@
-check process nsqd with pidfile /var/run/nsqd.pid
-	start program = "/etc/init.d/nsqd start"
-	stop program  = "/etc/init.d/nsqd stop"
-	if failed port <%= @http_port %> with timeout 10 seconds for 2 cycles then restart

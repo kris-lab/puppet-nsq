@@ -1,4 +1,0 @@
-check process nsqlookupd with pidfile /var/run/nsqlookupd.pid
-	start program = "/etc/init.d/nsqlookupd start"
-	stop program  = "/etc/init.d/nsqlookupd stop"
-	if failed port <%= @http_port %> with timeout 10 seconds for 2 cycles then restart
