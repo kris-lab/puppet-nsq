@@ -1,4 +1,4 @@
-class nsq::server (
+class nsq::producer (
   $version = '0.2.27',
   $http_address = '0.0.0.0',
   $http_port    = '4151',
