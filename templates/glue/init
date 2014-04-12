@@ -1,11 +1,11 @@
 ### BEGIN INIT INFO
-# Provides:				    <%= @instance_name %>
-# Required-Start:		  $syslog
-# Required-Stop:		  $syslog
-# Default-Start:		  2 3 4 5
-# Default-Stop:			  0 1 6
-# Short-Description:	<%= @instance_name %>
-# Description:			  NSQ Lookup Server
+# Provides:           <%= @instance_name %>
+# Required-Start:     $syslog
+# Required-Stop:      $syslog
+# Default-Start:      2 3 4 5
+# Default-Stop:       0 1 6
+# Short-Description:  <%= @instance_name %>
+# Description:        NSQ Lookup Server
 ### END INIT INFO
 
 NAME=<%= @instance_name %>
