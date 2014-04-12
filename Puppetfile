@@ -1,7 +1,7 @@
-mod 'feedlabs/helper',
-  :git => 'git@github.com:feedlabs/puppet-packages.git',
+mod 'cargomedia/helper',
+  :git => 'git@github.com:cargomedia/puppet-packages.git',
   :path => 'modules/helper'
 
-mod 'feedlabs/monit',
-  :git => 'git@github.com:feedlabs/puppet-packages.git',
+mod 'cargomedia/monit',
+  :git => 'git@github.com:cargomedia/puppet-packages.git',
   :path => 'modules/monit'
