@@ -1,0 +1,5 @@
+http_address="<%= @http_address %>:<%= @http_port %>"
+tcp_address="<%= @tcp_address %>:<%= @tcp_port %>"
+<% if !@nsqlookupd_tcp_addresses.empty? -%>
+nsqlookupd_tcp_addresses="<%= @nsqlookupd_tcp_addresses.join(',') %>"
+<% end %>

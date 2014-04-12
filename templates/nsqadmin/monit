@@ -1,0 +1,4 @@
+check process nsqadmin with pidfile /var/run/nsqadmin.pid
+	start program = "/etc/init.d/nsqadmin start"
+	stop program  = "/etc/init.d/nsqadmin stop"
+	if failed host 127.0.0.1 port <%= @port %> protocol http with timeout 10 seconds for 2 cycles then restart
