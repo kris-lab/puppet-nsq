@@ -1,41 +1,42 @@
 class nsq::producer (
-  $version = '0.2.27',
+  $version      = '0.2.27',
   $http_address = '0.0.0.0',
   $http_port    = '4151',
   $tcp_address  = '0.0.0.0',
   $tcp_port     = '4150',
-  $nsqlookupd_tcp_addresses = []
+  $nsqlookupd_tcp_addresses = [],
+  $daemon       = 'nsqd'
 ) {
 
   include 'nsq'
 
-  file {'/etc/nsq/nsqd.conf':
+  file {"/etc/nsq/${daemon}.conf":
     ensure => file,
-    content => template('nsq/nsqd/conf'),
+    content => template("nsq/${daemon}/conf"),
     mode => 644,
     owner => 'nsq',
   }
 
-  file {'/etc/init.d/nsqd':
+  file {"/etc/init.d/${daemon}":
     ensure => file,
-    content => template('nsq/nsqd/init'),
+    content => template('nsq/init'),
     mode => 755,
     owner => '0',
     group => '0',
-    notify => Service['nsqd'],
+    notify => Service[$daemon],
   }
   ~>
 
-  exec {'update-rc.d nsqd defaults  && /etc/init.d/nsqd start':
+  exec {"update-rc.d ${daemon} defaults  && /etc/init.d/${daemon} start":
     path => ['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin'],
     refreshonly => true,
   }
 
-  service {'nsqd': }
+  service {$daemon: }
 
-  @monit::entry {'nsqd':
-    content => template('nsq/nsqd/monit'),
-    require => Service['nsqd'],
+  @monit::entry {$daemon:
+    content => template('nsq/monit'),
+    require => Service[$daemon],
   }
 
 }

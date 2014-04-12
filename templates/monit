@@ -1,0 +1,4 @@
+check process <%= @daemon %> with pidfile /var/run/<%= @daemon %>.pid
+	start program = "/etc/init.d/<%= @daemon %> start"
+	stop program  = "/etc/init.d/<%= @daemon %> stop"
+	if failed port <%= @http_port %> with timeout 10 seconds for 2 cycles then restart

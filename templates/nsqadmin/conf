@@ -1,4 +1,4 @@
-http_address="<%= @address %>:<%= @port %>"
+http_address="<%= @http_address %>:<%= @http_port %>"
 <% if !@nsqlookupd_http_addresses.empty? %>
 nsqlookupd_http_addresses="<%= @nsqlookupd_http_addresses.join(',') %>"
 <% else %>
