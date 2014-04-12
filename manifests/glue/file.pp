@@ -4,15 +4,15 @@ define nsq::glue::file (
   $topic,
   $channel = 'nsq_to_file',
   $output_dir = '/tmp',
-  $nsqd_tcp_addresses = [],
-  $nsqlookupd_http_addresses = [],
+  $nsqd_tcp_addresses = '',
+  $nsqlookupd_http_addresses,
   $daemon = 'nsq_to_file'
 ){
 
   include 'nsq'
 
   $instance_name = "nsqtofile_${name}"
-  $instance_args = "-topic=\"${topic}\""
+  $instance_args = "-topic=${topic} -lookupd-http-address=${nsqlookupd_http_addresses}"
 
   file {"/etc/init.d/${instance_name}":
     ensure => file,
