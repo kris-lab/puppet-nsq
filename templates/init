@@ -11,7 +11,7 @@
 NAME=<%= @instance_name %>
 DAEMON=/usr/local/bin/<%= @daemon %>
 PIDFILE=/var/run/<%= @instance_name %>.pid
-DAEMON_ARGS="<%= @instance_args %>"
+DAEMON_ARGS='<%= @instance_args %>'
 
 set -e
 . /lib/lsb/init-functions
