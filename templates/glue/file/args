@@ -1,17 +1,17 @@
 channel=nsq_to_file
-datetime-format="%Y-%m-%d_%H"
-filename-format="<TOPIC>.<HOST><GZIPREV>.<DATETIME>.log"
+datetime-format=%Y-%m-%d_%H
+filename-format=<TOPIC>.<HOST><GZIPREV>.<DATETIME>.log
 gzip=false
 gzip-compression=3
 gzip-level=6
-host-identifier=""
+host-identifier=
 <% if !@nsqlookupd_http_addresses.empty? %>
 lookupd-http-address=<%= @nsqlookupd_http_addresses %>
 <% else %>
-nsqd-tcp-address=""
+nsqd-tcp-address=
 <% end %>
 max-in-flight=200
-output-dir="/tmp"
-reader-opt=""
+output-dir=/tmp
+reader-opt=
 skip-empty-files=false
 topic=<%= @topic %>

@@ -1,17 +1,17 @@
 channel=nsq_to_nsq
-destination-nsqd-tcp-address=""
-destination-topic=""
+destination-nsqd-tcp-address=
+destination-topic=
 <% if !@nsqlookupd_http_addresses.empty? %>
-lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
+lookupd-http-address=<%= @nsqlookupd_http_addresses %>
 <% else %>
-nsqd-tcp-address=""
+nsqd-tcp-address=
 <% end %>
-max-backoff-duration="2m0s"
+max-backoff-duration=2m0s
 max-in-flight=200
-mode="round-robin"
-reader-opt=""
-require-json-field=""
-require-json-value=""
+mode=round-robin
+reader-opt=
+require-json-field=
+require-json-value=
 status-every=250
 topic=<%= @topic %>
-whitelist-json-field=""
+whitelist-json-field=
