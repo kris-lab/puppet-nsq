@@ -12,15 +12,15 @@ define nsq::glue::file (
   include 'nsq'
 
   $instance_name = "nsqtofile_${name}"
-  $instance_args = "-topic=${topic} -lookupd-http-address=${nsqlookupd_http_addresses}"
+  $instance_args = get_daemon_args(template('nsq/glue/file/args'))
 
   file {"/etc/init.d/${instance_name}":
     ensure => file,
-    content => template('nsq/glue/init'),
+    content => template('nsq/init'),
     mode => 755,
     owner => '0',
     group => '0',
-    notify => Service['nsqlookupd'],
+    notify => Service[$instance_name],
   }
   ~>
 
