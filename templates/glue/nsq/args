@@ -1,11 +1,14 @@
 channel="nsq_to_nsq"
 destination-nsqd-tcp-address=""
 destination-topic=""
+<% if !@lookupd-http-address.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
+<% else %>
+nsqd-tcp-address=""
+<% end %>
 max-backoff-duration="2m0s"
 max-in-flight="200"
 mode="round-robin"
-nsqd-tcp-address=""
 reader-opt=""
 require-json-field=""
 require-json-value=""

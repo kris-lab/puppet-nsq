@@ -5,10 +5,13 @@ gzip="false"
 gzip-compression="3"
 gzip-level="6"
 host-identifier=""
+<% if !@lookupd-http-address.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
-max-in-flight="200"
+<% else %>
 nsqd-tcp-address=""
+<% end %>
+max-in-flight="200"
 output-dir="/tmp"
 reader-opt=""
 skip-empty-files=false
-topic=topic="<%= @topic %>"
+topic="<%= @topic %>"

@@ -3,12 +3,15 @@ content-type="application/octet-stream"
 get=""
 http-timeout="20s"
 http-timeout-ms="20000"
+<% if !@lookupd-http-address.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
+<% else %>
+nsqd-tcp-address=""
+<% end %>
 max-backoff-duration="2m0s"
 max-in-flight="200"
 mode="round-robin"
 n="100"
-nsqd-tcp-address=""
 post=""
 reader-opt=""
 round-robin="false"
