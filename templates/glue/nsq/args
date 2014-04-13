@@ -1,4 +1,4 @@
-channel="nsq_to_nsq"
+channel=nsq_to_nsq
 destination-nsqd-tcp-address=""
 destination-topic=""
 <% if !@nsqlookupd_http_addresses.empty? %>
@@ -7,11 +7,11 @@ lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
 nsqd-tcp-address=""
 <% end %>
 max-backoff-duration="2m0s"
-max-in-flight="200"
+max-in-flight=200
 mode="round-robin"
 reader-opt=""
 require-json-field=""
 require-json-value=""
-status-every="250"
-topic=topic="<%= @topic %>"
+status-every=250
+topic=<%= @topic %>
 whitelist-json-field=""

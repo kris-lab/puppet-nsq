@@ -1,21 +1,21 @@
-channel="nsq_to_http"
+channel=nsq_to_http
 content-type="application/octet-stream"
 get=""
 http-timeout="20s"
-http-timeout-ms="20000"
+http-timeout-ms=20000
 <% if !@nsqlookupd_http_addresses.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
 <% else %>
 nsqd-tcp-address=""
 <% end %>
 max-backoff-duration="2m0s"
-max-in-flight="200"
+max-in-flight=200
 mode="round-robin"
-n="100"
+n=100
 post=""
 reader-opt=""
-round-robin="false"
-sample="1"
-status-every="250"
-throttle-fraction="1"
-topic=topic="<%= @topic %>"
+round-robin=false
+sample=1
+status-every=250
+throttle-fraction=1
+topic=<%= @topic %>
