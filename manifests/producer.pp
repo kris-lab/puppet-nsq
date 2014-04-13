@@ -10,6 +10,9 @@ class nsq::producer (
 
   include 'nsq'
 
+  $instance_name = $daemon
+  $instance_args = "-config /etc/nsq/${daemon}.conf"
+
   file {"/etc/nsq/${daemon}.conf":
     ensure => file,
     content => template("nsq/${daemon}/conf"),

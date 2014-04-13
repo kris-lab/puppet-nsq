@@ -1,17 +1,17 @@
 ### BEGIN INIT INFO
-# Provides:           <%= @daemon %>
+# Provides:           <%= @instance_name %>
 # Required-Start:     $syslog
 # Required-Stop:      $syslog
 # Default-Start:      2 3 4 5
 # Default-Stop:       0 1 6
-# Short-Description:  <%= @daemon %>
-# Description:        NSQ Cluster Member
+# Short-Description:  <%= @instance_name %>
+# Description:        NSQ Lookup Server
 ### END INIT INFO
 
-NAME=<%= @daemon %>
+NAME=<%= @instance_name %>
 DAEMON=/usr/local/bin/<%= @daemon %>
-PIDFILE=/var/run/<%= @daemon %>.pid
-DAEMON_ARGS="-config /etc/nsq/<%= @daemon %>.conf"
+PIDFILE=/var/run/<%= @instance_name %>.pid
+DAEMON_ARGS="<%= @instance_args %>"
 
 set -e
 . /lib/lsb/init-functions

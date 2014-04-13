@@ -9,6 +9,9 @@ class nsq::admin (
 
   include 'nsq'
 
+  $instance_name = $daemon
+  $instance_args = "-config /etc/nsq/${daemon}.conf"
+
   if !count($nsqd_http_addresses) and !count($nsqlookupd_http_addresses) {
     fails('nsqd_http_addresses or lookupd_http_addresses must be provided!')
   }
