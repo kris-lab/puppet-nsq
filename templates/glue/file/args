@@ -5,7 +5,7 @@ gzip="false"
 gzip-compression="3"
 gzip-level="6"
 host-identifier=""
-<% if !@lookupd-http-address.empty? %>
+<% if !@nsqlookupd_http_addresses.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
 <% else %>
 nsqd-tcp-address=""

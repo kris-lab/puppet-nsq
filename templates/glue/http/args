@@ -3,7 +3,7 @@ content-type="application/octet-stream"
 get=""
 http-timeout="20s"
 http-timeout-ms="20000"
-<% if !@lookupd-http-address.empty? %>
+<% if !@nsqlookupd_http_addresses.empty? %>
 lookupd-http-address="<%= @nsqlookupd_http_addresses %>"
 <% else %>
 nsqd-tcp-address=""
